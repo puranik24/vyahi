@@ -1,0 +1,44 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="600" y1="0" x2="600" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2D0610"/>
+      <stop offset="0.5" stop-color="#4D0B1C"/>
+      <stop offset="1" stop-color="#22040B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 120) rotate(90) scale(240 380)">
+      <stop stop-color="#F3D7A1" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#F3D7A1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="314" y1="130" x2="886" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF2CF"/>
+      <stop offset="0.35" stop-color="#E7BF72"/>
+      <stop offset="0.7" stop-color="#B7832A"/>
+      <stop offset="1" stop-color="#F6DCAC"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" rx="34" fill="url(#bg)"/>
+  <rect x="22" y="22" width="1156" height="586" rx="26" stroke="#E9C983" stroke-opacity="0.65" stroke-width="2"/>
+  <rect x="42" y="42" width="1116" height="546" rx="18" stroke="#E9C983" stroke-opacity="0.28" stroke-width="1.5"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g opacity="0.86">
+    <path d="M116 520C116 366 216 266 370 266" stroke="#E7BF72" stroke-width="3"/>
+    <path d="M1084 520C1084 366 984 266 830 266" stroke="#E7BF72" stroke-width="3"/>
+    <path d="M116 110C116 264 216 364 370 364" stroke="#E7BF72" stroke-width="3"/>
+    <path d="M1084 110C1084 264 984 364 830 364" stroke="#E7BF72" stroke-width="3"/>
+  </g>
+
+  <circle cx="600" cy="165" r="76" fill="#FFFFFF" fill-opacity="0.03" stroke="#E9C983" stroke-opacity="0.55"/>
+  <circle cx="600" cy="165" r="58" stroke="#E9C983" stroke-opacity="0.38" stroke-dasharray="4 8"/>
+  <text x="600" y="180" text-anchor="middle" fill="url(#gold)" font-family="Cinzel, Georgia, serif" font-size="58" letter-spacing="10">NM</text>
+
+  <text x="600" y="264" text-anchor="middle" fill="#F6DEB0" font-family="Cinzel, Georgia, serif" font-size="24" letter-spacing="12">VYAHI BHOJAN SAMARAMBH</text>
+  <text x="600" y="354" text-anchor="middle" fill="url(#gold)" font-family="'Tiro Devanagari Marathi', serif" font-size="72" letter-spacing="4">निशांत  ❦  मुग्धा</text>
+  <text x="600" y="420" text-anchor="middle" fill="#F8E6C0" font-family="'Tiro Devanagari Marathi', serif" font-size="28" letter-spacing="2">रविवार, १२ एप्रिल २०२६  •  पूर्णानंद फार्म हाउस, पुणे</text>
+
+  <g opacity="0.78">
+    <path d="M275 520C260 490 258 472 270 462C286 468 285 489 275 520Z" fill="#E7BF72"/>
+    <path d="M925 520C910 490 908 472 920 462C936 468 935 489 925 520Z" fill="#E7BF72"/>
+  </g>
+</svg>
