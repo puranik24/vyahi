@@ -8,7 +8,7 @@
     content="निशांत आणि मुग्धा यांच्या व्याही भोजन समारंभाचे आमंत्रण | रविवार, १२ एप्रिल २०२६ | पूर्णानंद फार्म हाउस, पुणे" />
   <meta property="og:title" content="निशांत ❦ मुग्धा | व्याही भोजन समारंभ" />
   <meta property="og:description" content="रविवार, १२ एप्रिल २०२६ | पूर्णानंद फार्म हाउस, डोणजे, खडकवासला, पुणे" />
-  <title>व्याही भोजन समारंभ</title>
+  <title>निशांत ❦ मुग्धा | व्याही भोजन समारंभ</title>
 
   <meta property="og:image" content="og-image.svg" />
   <meta property="og:image:type" content="image/svg+xml" />
@@ -98,10 +98,13 @@
       padding: 24px;
       border-radius: 28px;
       background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015)),
         linear-gradient(180deg, rgba(77, 10, 24, 0.98), rgba(47, 6, 15, 0.98));
       border: 1px solid rgba(240, 215, 164, 0.34);
       box-shadow: 0 22px 48px rgba(0, 0, 0, 0.36);
       overflow: hidden;
+      backdrop-filter: blur(10px) saturate(1.08);
+      -webkit-backdrop-filter: blur(10px) saturate(1.08);
       animation: introCardIn 1200ms cubic-bezier(.22, 1, .36, 1) both;
     }
 
@@ -120,6 +123,44 @@
       background: linear-gradient(120deg, transparent 15%, rgba(255, 255, 255, 0.16) 50%, transparent 80%);
       transform: translateX(-120%);
       animation: introSweep 1.8s ease-out 420ms both;
+    }
+
+    .opening-card-glass {
+      position: absolute;
+      inset: 12% 14% 0 auto;
+      width: 44%;
+      height: 92%;
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04) 28%, rgba(255, 255, 255, 0.01) 55%, rgba(255, 255, 255, 0.1));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow:
+        inset 1px 0 0 rgba(255, 255, 255, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transform: skewY(-14deg) translateX(28px);
+      opacity: 0.7;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      animation: glassFloat 4.6s ease-in-out infinite;
+    }
+
+    .opening-card-glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.42), transparent 32%, transparent 68%, rgba(255, 255, 255, 0.16));
+      opacity: 0.62;
+    }
+
+    .opening-card-glass::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(120deg, transparent 8%, rgba(255, 255, 255, 0.24) 38%, transparent 62%);
+      transform: translateX(-140%);
+      animation: glassSweep 3.2s ease-in-out infinite 0.9s;
     }
 
     .opening-emblem {
@@ -898,6 +939,16 @@
       box-shadow: 0 10px 20px rgba(74, 11, 27, 0.18);
     }
 
+    .detail-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
     .detail-label {
       margin-top: 16px;
       font-family: "Cinzel", serif;
@@ -1046,6 +1097,16 @@
       transition: transform 280ms ease, box-shadow 280ms ease, background 280ms ease;
     }
 
+    .action-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
     .action-btn::after {
       content: "";
       position: absolute;
@@ -1177,6 +1238,10 @@
     }
 
     .mobile-ornament {
+      display: none;
+    }
+
+    .mobile-action-bar {
       display: none;
     }
 
@@ -1389,6 +1454,90 @@
       }
     }
 
+    @keyframes introCardIn {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.92);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes introSweep {
+      0% {
+        transform: translateX(-120%);
+      }
+
+      100% {
+        transform: translateX(120%);
+      }
+    }
+
+    @keyframes glassFloat {
+      0%, 100% {
+        transform: skewY(-14deg) translateX(28px) translateY(0);
+        opacity: 0.62;
+      }
+
+      50% {
+        transform: skewY(-14deg) translateX(18px) translateY(8px);
+        opacity: 0.86;
+      }
+    }
+
+    @keyframes glassSweep {
+      0%, 18% {
+        transform: translateX(-140%);
+        opacity: 0;
+      }
+
+      36% {
+        opacity: 0.9;
+      }
+
+      60%, 100% {
+        transform: translateX(140%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes foilShift {
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes stickyBarIn {
+      0% {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes stickyPulse {
+      0%,
+      100% {
+        box-shadow: 0 14px 28px rgba(45, 5, 15, 0.24);
+      }
+
+      50% {
+        box-shadow: 0 16px 34px rgba(225, 191, 116, 0.18);
+      }
+    }
+
     @media (max-width: 720px) {
 
       .hero,
@@ -1510,6 +1659,33 @@
       .map-card-inner {
         position: relative;
       }
+      .mobile-action-bar {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: max(12px, env(safe-area-inset-bottom));
+        z-index: 22;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 24px;
+        background: rgba(34, 4, 11, 0.84);
+        border: 1px solid rgba(240, 215, 164, 0.16);
+        backdrop-filter: blur(16px);
+        animation: stickyBarIn 720ms cubic-bezier(.22, 1, .36, 1) 1.1s both, stickyPulse 4.2s ease-in-out infinite 2.2s;
+      }
+      .mobile-action-bar .action-btn {
+        min-width: 0;
+        width: 100%;
+        padding-left: 14px;
+        padding-right: 14px;
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+      }
+      .page-shell {
+        padding-bottom: 120px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1537,6 +1713,7 @@
 <body class="is-intro-active">
   <div class="opening-screen" id="opening-screen" aria-hidden="true">
     <div class="opening-card">
+      <div class="opening-card-glass" aria-hidden="true"></div>
       <div class="opening-emblem">NM</div>
       <div class="opening-copy">
         <div class="eyebrow">Invitation</div>
@@ -1545,10 +1722,31 @@
       </div>
     </div>
   </div>
-
   <div class="background-glow" aria-hidden="true"></div>
   <canvas id="particles" aria-hidden="true"></canvas>
-
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="icon-calendar" viewBox="0 0 24 24">
+      <rect x="3.5" y="5.5" width="17" height="15" rx="2.5"></rect>
+      <path d="M7 3.5V7"></path>
+      <path d="M17 3.5V7"></path>
+      <path d="M3.5 9.5H20.5"></path>
+      <path d="M8 13H8.01"></path>
+      <path d="M12 13H12.01"></path>
+      <path d="M16 13H16.01"></path>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5"></circle>
+      <path d="M12 7.5V12L15.5 14"></path>
+    </symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24">
+      <path d="M12 20C15.8 15.9 18 13.2 18 9.8C18 6.6 15.3 4 12 4C8.7 4 6 6.6 6 9.8C6 13.2 8.2 15.9 12 20Z"></path>
+      <circle cx="12" cy="9.8" r="2.4"></circle>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M5 12H19"></path>
+      <path d="M13 6L19 12L13 18"></path>
+    </symbol>
+  </svg>
 
   <main class="page-shell">
     <div class="invite-frame">
@@ -1611,7 +1809,7 @@
         <section class="hero">
           <div class="hero-orbit" aria-hidden="true"></div>
           <div class="hero-seal reveal">
-            <div class="hero-monogram">NM</div> 
+            <div class="hero-monogram">NM</div>
           </div>
           <div class="eyebrow reveal" data-delay="1">शुभ मंगल</div>
           <p class="hero-mantra reveal" data-delay="2">॥ श्री रेणुका देवी सुप्रसन्न ॥</p>
@@ -1626,9 +1824,9 @@
           <p class="hero-namaste reveal" data-delay="4">सस्नेह नमस्कार</p>
         </section>
 
-        <section class="name-panel reveal">
+        <section class="name-panel texture-panel reveal">
           <div class="eyebrow">विवाह सोहळ्याच्या मंगल निमित्ताने</div>
-          <h1>निशांत <span class="ampersand">&amp;</span> मुग्धा</h1>
+          <h1 class="foil-text">निशांत <span class="ampersand">&amp;</span> मुग्धा</h1>
           <div class="romanized">Nishant and Mugdha</div>
           <div class="date-plaque">
             <i></i>
@@ -1637,7 +1835,7 @@
           </div>
         </section>
 
-        <section class="content">
+        <section class="content texture-panel">
           <p class="intro reveal">
             ईश्वर कृपेने व सद्गुरु, आप्तेष्टांच्या आशीर्वादाने आपले दोन्ही कुटुंब
             <strong>“निशांत आणि मुग्धा”</strong> यांच्या विवाह बंधन निमित्ताने एकत्र गुंफले आहोत.
@@ -1659,7 +1857,7 @@
           </div>
 
           <div class="section-title reveal">
-            <div class="mr">व्याही भोजन समारंभ</div>
+            <div class="mr foil-text">व्याही भोजन समारंभ</div>
             <div class="en">Vyahi Bhojan Samarambh</div>
           </div>
 
@@ -1710,21 +1908,21 @@
               <div class="details-head">कार्यक्रम तपशील</div>
               <div class="detail-grid">
                 <article class="detail-item">
-                  <div class="detail-icon">📅</div>
+                  <div class="detail-icon" aria-hidden="true"><svg><use href="#icon-calendar"></use></svg></div>
                   <div class="detail-label">दिनांक</div>
                   <div class="detail-title">रविवार, १२ एप्रिल २०२६</div>
                   <div class="detail-sub">Sunday, 12 April 2026</div>
                 </article>
 
                 <article class="detail-item">
-                  <div class="detail-icon">⏰</div>
+                  <div class="detail-icon" aria-hidden="true"><svg><use href="#icon-clock"></use></svg></div>
                   <div class="detail-label">वेळ</div>
                   <div class="detail-title">सकाळी ११.३० वाजता</div>
                   <div class="detail-sub">11:30 AM onwards</div>
                 </article>
 
                 <article class="detail-item">
-                  <div class="detail-icon">📍</div>
+                  <div class="detail-icon" aria-hidden="true"><svg><use href="#icon-pin"></use></svg></div>
                   <div class="detail-label">स्थळ</div>
                   <div class="detail-title">पूर्णानंद फार्म हाउस</div>
                   <div class="detail-sub">Donje, Khadakwasla, Pune</div>
@@ -1739,7 +1937,7 @@
           </p>
         </section>
 
-        <section class="map-section">
+        <section class="map-section texture-panel">
           <div class="map-card reveal">
             <div class="map-card-inner">
               <svg class="mobile-ornament" viewBox="0 0 64 64" fill="none" aria-hidden="true">
@@ -1749,7 +1947,7 @@
                 <path d="M32 50C14 41 12 26 16 19C22 20 27 26 32 37C37 26 42 20 48 19C52 26 50 41 32 50Z"
                   fill="rgba(180,131,42,0.55)" />
               </svg>
-              <div class="map-heading">मार्गदर्शन</div>
+              <div class="map-heading foil-text">मार्गदर्शन</div>
               <p class="map-sub">
                 समारंभस्थळी पोहोचण्यासाठी खालील नकाशा, दिशा दुवे आणि QR कोड उपयोगी पडतील.
               </p>
@@ -1771,23 +1969,23 @@
                 <a class="action-btn primary"
                   href="https://www.google.com/maps/dir/?api=1&destination=18.4040865,73.7610036&destination_place_id=0x3bc29547906225db:0xe95309195a85373b"
                   target="_blank" rel="noopener">
-                  Google Maps
+                  Google Maps <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"></use></svg>
                 </a>
                 <a class="action-btn secondary" href="https://maps.apple.com/?daddr=18.4040865,73.7610036&dirflg=d"
                   target="_blank" rel="noopener">
-                  Apple Maps
+                  Apple Maps <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"></use></svg>
                 </a>
                 <a class="action-btn secondary"
                   href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vyahi%20Bhojan%20Samarambh%20-%20Nishant%20and%20Mugdha&dates=20260412T060000Z/20260412T093000Z&details=Vyahi%20Bhojan%20Samarambh%20at%20Purnanand%20Farmhouse%2C%20Donje%2C%20Khadakwasla%2C%20Pune&location=Purnanand%20Farmhouse%2C%20Donje%2C%20Khadakwasla%2C%20Pune"
                   target="_blank" rel="noopener">
-                  Save the Date
+                  Save the Date <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"></use></svg>
                 </a>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="hosts-section">
+        <section class="hosts-section texture-panel">
           <div class="hosts-card reveal">
             <div class="hosts-card-inner">
               <div class="hosts-title">आपले स्नेहाभीलाशी</div>
@@ -1802,7 +2000,7 @@
         </section>
 
         <footer class="footer">
-          <div class="footer-badge reveal">
+          <div class="footer-badge reveal foil-text">
             <i></i>
             शुभ मंगल सावधान
             <i></i>
@@ -1811,6 +2009,25 @@
       </div>
     </div>
   </main>
+
+  <div class="mobile-action-bar">
+    <a
+      class="action-btn primary"
+      href="https://www.google.com/maps/dir/?api=1&destination=18.4040865,73.7610036&destination_place_id=0x3bc29547906225db:0xe95309195a85373b"
+      target="_blank"
+      rel="noopener"
+    >
+      Directions <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+    </a>
+    <a
+      class="action-btn secondary"
+      href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vyahi%20Bhojan%20Samarambh%20-%20Nishant%20and%20Mugdha&dates=20260412T060000Z/20260412T093000Z&details=Vyahi%20Bhojan%20Samarambh%20at%20Purnanand%20Farmhouse%2C%20Donje%2C%20Khadakwasla%2C%20Pune&location=Purnanand%20Farmhouse%2C%20Donje%2C%20Khadakwasla%2C%20Pune"
+      target="_blank"
+      rel="noopener"
+    >
+      Save Date <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+    </a>
+  </div>
 
   <script>
     (function () {
@@ -1990,15 +2207,13 @@
 
     document.addEventListener("DOMContentLoaded", function () {
       const openingScreen = document.getElementById("opening-screen");
-window.setTimeout(function () {
-  if (openingScreen) {
-    openingScreen.classList.add("is-hidden");
-    document.body.classList.remove("is-intro-active");
-  }
-}, 1850);
+      window.setTimeout(function () {
+        if (openingScreen) {
+          openingScreen.classList.add("is-hidden");
+          document.body.classList.remove("is-intro-active");
+        }
+      }, 1850);
 
-
-      
       if (typeof QRCode !== "undefined") {
         new QRCode(document.getElementById("qr-code"), {
           text: "https://www.google.com/maps/dir/?api=1&destination=18.4040865,73.7610036",
