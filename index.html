@@ -10,6 +10,13 @@
   <meta property="og:description" content="रविवार, १२ एप्रिल २०२६ | पूर्णानंद फार्म हाउस, डोणजे, खडकवासला, पुणे" />
   <title>व्याही भोजन समारंभ</title>
 
+  <meta property="og:image" content="og-image.svg" />
+  <meta property="og:image:type" content="image/svg+xml" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="og-image.svg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -60,6 +67,128 @@
         radial-gradient(circle at top, rgba(229, 192, 124, 0.18), transparent 28%),
         radial-gradient(circle at bottom, rgba(123, 19, 35, 0.18), transparent 30%),
         linear-gradient(180deg, #22040c 0%, #3a0815 34%, #23050c 100%);
+    }
+
+    body.is-intro-active {
+      overflow: hidden;
+    }
+
+    .opening-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 22%, rgba(245, 221, 171, 0.22), transparent 28%),
+        linear-gradient(180deg, rgba(37, 4, 11, 0.98), rgba(27, 2, 8, 0.98));
+      transition: opacity 900ms ease, visibility 900ms ease;
+    }
+
+    .opening-screen.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .opening-card {
+      position: relative;
+      width: min(86vw, 320px);
+      aspect-ratio: 1 / 1.08;
+      padding: 24px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(77, 10, 24, 0.98), rgba(47, 6, 15, 0.98));
+      border: 1px solid rgba(240, 215, 164, 0.34);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.36);
+      overflow: hidden;
+      animation: introCardIn 1200ms cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    .opening-card::before,
+    .opening-card::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(240, 215, 164, 0.16);
+    }
+
+    .opening-card::after {
+      inset: 0;
+      border: 0;
+      background: linear-gradient(120deg, transparent 15%, rgba(255, 255, 255, 0.16) 50%, transparent 80%);
+      transform: translateX(-120%);
+      animation: introSweep 1.8s ease-out 420ms both;
+    }
+
+    .opening-emblem {
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--gold-300);
+      font-family: "Cinzel", serif;
+      font-size: 2.2rem;
+      letter-spacing: 0.12em;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 247, 224, 0.32), transparent 35%),
+        rgba(255, 248, 239, 0.04);
+      border: 1px solid rgba(240, 215, 164, 0.46);
+      box-shadow: inset 0 0 0 10px rgba(240, 215, 164, 0.06);
+      animation: softFloat 4.8s ease-in-out infinite;
+    }
+
+    .opening-copy {
+      text-align: center;
+      color: var(--champagne);
+    }
+
+    .opening-copy .eyebrow {
+      margin-bottom: 10px;
+      font-size: 0.66rem;
+    }
+
+    .opening-title {
+      font-size: 1.45rem;
+      line-height: 1.65;
+      color: var(--gold-300);
+      text-shadow: 0 0 16px rgba(240, 215, 164, 0.14);
+    }
+
+    .opening-sub {
+      margin-top: 14px;
+      font-size: 0.96rem;
+      line-height: 1.8;
+      color: rgba(252, 239, 211, 0.72);
+    }
+
+    .texture-panel {
+      position: relative;
+    }
+
+    .texture-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.18), transparent 18%),
+        radial-gradient(circle at 80% 85%, rgba(211, 164, 84, 0.08), transparent 24%),
+        repeating-linear-gradient(0deg, rgba(118, 62, 25, 0.022) 0, rgba(118, 62, 25, 0.022) 1px, transparent 1px, transparent 7px);
+      mix-blend-mode: multiply;
+      opacity: 0.55;
+    }
+
+    .foil-text {
+      background: linear-gradient(135deg, #fff4d7 0%, #d9b56b 28%, #9f6e1e 52%, #f5dfae 76%, #fff2cf 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: foilShift 7s ease-in-out infinite;
     }
 
     .background-glow,
@@ -1470,7 +1599,7 @@
         <section class="hero">
           <div class="hero-orbit" aria-hidden="true"></div>
           <div class="hero-seal reveal">
-            <div class="hero-monogram">NM</div>
+            <div class="hero-monogram">NM</div> 
           </div>
           <div class="eyebrow reveal" data-delay="1">शुभ मंगल</div>
           <p class="hero-mantra reveal" data-delay="2">॥ श्री रेणुका देवी सुप्रसन्न ॥</p>
