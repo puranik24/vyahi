@@ -1534,9 +1534,21 @@
   </style>
 </head>
 
-<body>
+<body class="is-intro-active">
+  <div class="opening-screen" id="opening-screen" aria-hidden="true">
+    <div class="opening-card">
+      <div class="opening-emblem">NM</div>
+      <div class="opening-copy">
+        <div class="eyebrow">Invitation</div>
+        <div class="opening-title">निशांत आणि मुग्धा</div>
+        <div class="opening-sub">व्याही भोजन समारंभ</div>
+      </div>
+    </div>
+  </div>
+
   <div class="background-glow" aria-hidden="true"></div>
   <canvas id="particles" aria-hidden="true"></canvas>
+
 
   <main class="page-shell">
     <div class="invite-frame">
@@ -1977,6 +1989,16 @@
     })();
 
     document.addEventListener("DOMContentLoaded", function () {
+      const openingScreen = document.getElementById("opening-screen");
+window.setTimeout(function () {
+  if (openingScreen) {
+    openingScreen.classList.add("is-hidden");
+    document.body.classList.remove("is-intro-active");
+  }
+}, 1850);
+
+
+      
       if (typeof QRCode !== "undefined") {
         new QRCode(document.getElementById("qr-code"), {
           text: "https://www.google.com/maps/dir/?api=1&destination=18.4040865,73.7610036",
